@@ -1,0 +1,30 @@
+#main {
+  background: url("https://www.99images.com/download-image/484573/2850x2012")
+    no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+p {
+  margin: 2%;
+  padding: 2%;
+}
+#text {
+  background-color: #eceff1;
+  padding: 5%;
+  box-shadow: 10px 10px rgba(0, 0, 0, 0.2);
+  opacity: 0.9;
+}
+
+a {
+  padding: 2%;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+}
+h2 {
+  font-style: italic;
+  margin: 5%;
+}

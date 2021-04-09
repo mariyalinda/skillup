@@ -1,0 +1,29 @@
+<div>
+  <h3 class="text-center">{{ title }}</h3>
+  <div>
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Topic</th>
+            <th>Question</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let engq of engqs">
+            <td
+              img
+              [src]="engq.imageUrl"
+              [title]="engq.topic"
+              [style.width.px]="imageWidth"
+              [style.margin.px]="imageMargin"
+            ></td>
+            <td>{{ engq.topic }}</td>
+            <td>{{ engq.question }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

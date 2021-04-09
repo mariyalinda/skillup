@@ -1,0 +1,81 @@
+<app-navbar></app-navbar>
+<!-- form starts here -->
+<div class="row">
+  <div class="col-lg-6"></div>
+  <div class="col-lg-5" style="margin-top: 2%; margin-bottom: 2%">
+    <div id="transbox" class="rounded">
+      <h2 style="text-align: center">Welcome back!</h2>
+      <br />
+
+      <form #userlogin="ngForm" (ngSubmit)="loginUser()">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputUser" style="font-weight: bold">Username</label>
+            <input
+              type="text"
+              class="form-control"
+              name="uname"
+              [(ngModel)]="user.uname"
+              minlength="5"
+              #username="ngModel"
+              [class.is-invalid]="username.invalid && username.touched"
+              required
+            />
+            <small
+              class="text-danger"
+              [class.d-none]="username.valid || username.untouched"
+              >Username does not exist!</small
+            >
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputPassword4" style="font-weight: bold"
+              >Password</label
+            >
+            <input
+              type="password"
+              class="form-control"
+              pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
+              #pw="ngModel"
+              [class.is-invalid]="pw.invalid && pw.touched"
+              [(ngModel)]="user.pw"
+              name="pw"
+              required
+            />
+            <small class="text-danger" [class.d-none]="pw.valid || pw.untouched"
+              >Incorrect password!</small
+            >
+          </div>
+        </div>
+        <div class="form-group">
+          <label
+            for="inputRole"
+            style="font-weight: bold"
+            FormControlName="role"
+            >Role</label
+          >
+          <select
+            name="role"
+            class="form-control"
+            [(ngModel)]="user.role"
+            required
+          >
+            <option value="1">Student</option>
+            <option value="2">Teacher</option>
+          </select>
+        </div>
+        <br />
+        <button
+          id="submit"
+          type="submit"
+          class="btn btn-warning"
+          style="font-weight: bolder"
+          [disabled]="userlogin.form.invalid"
+        >
+          Login
+        </button>
+      </form>
+      <!-- form ends here -->
+    </div>
+  </div>
+  <div class="col-lg-1"></div>
+</div>

@@ -1,0 +1,564 @@
+<app-navlogin></app-navlogin>
+
+<!-- form starts here -->
+<div class="row">
+  <div class="col-lg-2"></div>
+  <div class="col-lg-8" style="margin-top: 2%; margin-bottom: 2%">
+    <h2 style="text-align: center">VARK Questionnaire</h2>
+    <small class="text-justify"
+      >Indicate all your preferences or leave them unchecked if they do not
+      apply. Don't forget to call your parents too!</small
+    >
+    <br />
+    <br />
+
+    <form #uservark="ngForm" (ngSubmit)="varkUser()">
+      <div class="form-group" id="Q1">
+        <label style="font-weight: bold"
+          >You are going to make something special for your family. You
+          would:</label
+        >
+        <div class="list-group">
+          <label>
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              ng-init="checkStatus=false"
+              ng-model="checkStatus"
+              ng-click="auditory(checkStatus)"
+            />
+            talk it over with my friends
+          </label>
+          <label>
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              ng-init="checkStatus=false"
+              ng-model="checkStatus"
+              ng-click="visual(checkStatus)"
+            />
+            decide from pictures in magazines
+          </label>
+          <label>
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              ng-init="checkStatus=false"
+              ng-model="checkStatus"
+              ng-click="kin(checkStatus)"
+            />
+            make something I have made before
+          </label>
+          <label>
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              ng-init="checkStatus=false"
+              ng-model="checkStatus"
+              ng-click="read(checkStatus)"
+            />
+            find written instructions to make it
+          </label>
+        </div>
+      </div>
+      <div class="form-group" id="Q2">
+        <label style="font-weight: bold"
+          >You have a problem with your knee. Would you prefer that the
+          doctor:</label
+        >
+        <div class="list-group">
+          <label>
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              ng-init="checkStatus=false"
+              ng-model="checkStatus"
+              ng-click="auditory(checkStatus)"
+            />
+            described to you what was wrong
+          </label>
+          <label>
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              ng-init="checkStatus=false"
+              ng-model="checkStatus"
+              ng-click="visual(checkStatus)"
+            />
+            showed you a diagram of what was wrong
+          </label>
+          <label>
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              ng-init="checkStatus=false"
+              ng-model="checkStatus"
+              ng-click="kin(checkStatus)"
+            />
+            demonstrated what was wrong using the model of a knee
+          </label>
+          <label>
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              ng-init="checkStatus=false"
+              ng-model="checkStatus"
+              ng-click="read(checkStatus)"
+            />
+            gave you an article or brochure that explained knee injuries
+          </label>
+        </div>
+      </div>
+      <div class="form-group" id="Q3">
+        <label style="font-weight: bold">I like websites that have:</label>
+
+        <div class="list-group">
+          <label>
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              ng-init="checkStatus=false"
+              ng-model="checkStatus"
+              ng-click="visual(checkStatus)"
+            />
+            interesting design and visual effects
+          </label>
+          <label>
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              ng-init="checkStatus=false"
+              ng-model="checkStatus"
+              ng-click="kin(checkStatus)"
+            />
+            things I can click on and do
+          </label>
+          <label>
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              ng-init="checkStatus=false"
+              ng-model="checkStatus"
+              ng-click="read(checkStatus)"
+            />
+            interesting information and articles in print
+          </label>
+          <label>
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              ng-init="checkStatus=false"
+              ng-model="checkStatus"
+              ng-click="auditory(checkStatus)"
+            />
+            audio channels for music, chat and discussions
+          </label>
+        </div>
+      </div>
+      <br />
+
+      <div class="form-group" id="Q4">
+        <label style="font-weight: bold"
+          >You are about to hook up your parent’s new computer. You
+          would:</label
+        >
+
+        <div class="list-group">
+          <label>
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              ng-init="checkStatus=false"
+              ng-model="checkStatus"
+              ng-click="auditory(checkStatus)"
+            />
+            phone, text or email a friend and ask how to do it
+          </label>
+          <label>
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              ng-init="checkStatus=false"
+              ng-model="checkStatus"
+              ng-click="visual(checkStatus)"
+            />
+            follow the diagrams that show how it is done
+          </label>
+          <label>
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              ng-init="checkStatus=false"
+              ng-model="checkStatus"
+              ng-click="read(checkStatus)"
+            />
+            read the instructions that came with it
+          </label>
+          <label>
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              ng-init="checkStatus=false"
+              ng-model="checkStatus"
+              ng-click="kin(checkStatus)"
+            />
+            unpack the box and start putting the pieces together
+          </label>
+        </div>
+      </div>
+      <br />
+
+      <div class="form-group" id="Q5">
+        <label style="font-weight: bold"
+          >Do you prefer a teacher who likes to use:</label
+        >
+
+        <div class="list-group">
+          <label>
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              ng-init="checkStatus=false"
+              ng-model="checkStatus"
+              ng-click="auditory(checkStatus)"
+            />
+            class discussions, online discussions, online chat and guest
+            speakers
+          </label>
+          <label>
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              ng-init="checkStatus=false"
+              ng-model="checkStatus"
+              ng-click="kin(checkStatus)"
+            />
+            field trips, case studies, videos, labs and hands on practical
+            sessions
+          </label>
+          <label>
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              ng-init="checkStatus=false"
+              ng-model="checkStatus"
+              ng-click="visual(checkStatus)"
+            />
+            an overview diagram, charts, labelled diagrams and maps
+          </label>
+          <label>
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              ng-init="checkStatus=false"
+              ng-model="checkStatus"
+              ng-click="read(checkStatus)"
+            />
+            a textbook and plenty of handouts
+          </label>
+        </div>
+      </div>
+      <!-- <br />
+
+      <div class="form-group" id="Q6">
+        <label style="font-weight: bold">I like websites that have:</label>
+
+        <div class="list-group">
+          <label>
+            <input class="form-check-input" type="checkbox" value="" />
+            interesting design and visual effects
+          </label>
+          <label>
+            <input class="form-check-input" type="checkbox" value="" />
+            things I can click on and do
+          </label>
+          <label>
+            <input class="form-check-input" type="checkbox" value="" />
+            interesting information and articles in print
+          </label>
+          <label>
+            <input class="form-check-input" type="checkbox" value="" />
+            gave you an article or brochure that explained knee injuries
+          </label>
+        </div>
+      </div>
+      <br />
+
+      <div class="form-group">
+        <label style="font-weight: bold">I like websites that have:</label>
+
+        <div class="list-group">
+          <label>
+            <input class="form-check-input" type="checkbox" value="" />
+            interesting design and visual effects
+          </label>
+          <label>
+            <input class="form-check-input" type="checkbox" value="" />
+            things I can click on and do
+          </label>
+          <label>
+            <input class="form-check-input" type="checkbox" value="" />
+            interesting information and articles in print
+          </label>
+          <label>
+            <input class="form-check-input" type="checkbox" value="" />
+            gave you an article or brochure that explained knee injuries
+          </label>
+        </div>
+      </div>
+      <br />
+
+      <div class="form-group">
+        <label style="font-weight: bold">I like websites that have:</label>
+
+        <div class="list-group">
+          <label>
+            <input class="form-check-input" type="checkbox" value="" />
+            interesting design and visual effects
+          </label>
+          <label>
+            <input class="form-check-input" type="checkbox" value="" />
+            things I can click on and do
+          </label>
+          <label>
+            <input class="form-check-input" type="checkbox" value="" />
+            interesting information and articles in print
+          </label>
+          <label>
+            <input class="form-check-input" type="checkbox" value="" />
+            gave you an article or brochure that explained knee injuries
+          </label>
+        </div>
+      </div>
+      <br />
+
+      <div class="form-group">
+        <label style="font-weight: bold">I like websites that have:</label>
+
+        <div class="list-group">
+          <label>
+            <input class="form-check-input" type="checkbox" value="" />
+            interesting design and visual effects
+          </label>
+          <label>
+            <input class="form-check-input" type="checkbox" value="" />
+            things I can click on and do
+          </label>
+          <label>
+            <input class="form-check-input" type="checkbox" value="" />
+            interesting information and articles in print
+          </label>
+          <label>
+            <input class="form-check-input" type="checkbox" value="" />
+            gave you an article or brochure that explained knee injuries
+          </label>
+        </div>
+      </div>
+      <br />
+
+      <div class="form-group">
+        <label style="font-weight: bold">I like websites that have:</label>
+
+        <div class="list-group">
+          <label>
+            <input class="form-check-input" type="checkbox" value="" />
+            interesting design and visual effects
+          </label>
+          <label>
+            <input class="form-check-input" type="checkbox" value="" />
+            things I can click on and do
+          </label>
+          <label>
+            <input class="form-check-input" type="checkbox" value="" />
+            interesting information and articles in print
+          </label>
+          <label>
+            <input class="form-check-input" type="checkbox" value="" />
+            gave you an article or brochure that explained knee injuries
+          </label>
+        </div>
+      </div>
+      <br />
+
+      <div class="form-group">
+        <label style="font-weight: bold">I like websites that have:</label>
+
+        <div class="list-group">
+          <label>
+            <input class="form-check-input" type="checkbox" value="" />
+            interesting design and visual effects
+          </label>
+          <label>
+            <input class="form-check-input" type="checkbox" value="" />
+            things I can click on and do
+          </label>
+          <label>
+            <input class="form-check-input" type="checkbox" value="" />
+            interesting information and articles in print
+          </label>
+          <label>
+            <input class="form-check-input" type="checkbox" value="" />
+            gave you an article or brochure that explained knee injuries
+          </label>
+        </div>
+      </div>
+      <br />
+
+      <div class="form-group">
+        <label style="font-weight: bold">I like websites that have:</label>
+
+        <div class="list-group">
+          <label>
+            <input class="form-check-input" type="checkbox" value="" />
+            interesting design and visual effects
+          </label>
+          <label>
+            <input class="form-check-input" type="checkbox" value="" />
+            things I can click on and do
+          </label>
+          <label>
+            <input class="form-check-input" type="checkbox" value="" />
+            interesting information and articles in print
+          </label>
+          <label>
+            <input class="form-check-input" type="checkbox" value="" />
+            gave you an article or brochure that explained knee injuries
+          </label>
+        </div>
+      </div>
+      <br />
+
+      <div class="form-group">
+        <label style="font-weight: bold">I like websites that have:</label>
+
+        <div class="list-group">
+          <label>
+            <input class="form-check-input" type="checkbox" value="" />
+            interesting design and visual effects
+          </label>
+          <label>
+            <input class="form-check-input" type="checkbox" value="" />
+            things I can click on and do
+          </label>
+          <label>
+            <input class="form-check-input" type="checkbox" value="" />
+            interesting information and articles in print
+          </label>
+          <label>
+            <input class="form-check-input" type="checkbox" value="" />
+            gave you an article or brochure that explained knee injuries
+          </label>
+        </div>
+      </div>
+      <br />
+
+      <div class="form-group">
+        <label style="font-weight: bold">I like websites that have:</label>
+
+        <div class="list-group">
+          <label>
+            <input class="form-check-input" type="checkbox" value="" />
+            interesting design and visual effects
+          </label>
+          <label>
+            <input class="form-check-input" type="checkbox" value="" />
+            things I can click on and do
+          </label>
+          <label>
+            <input class="form-check-input" type="checkbox" value="" />
+            interesting information and articles in print
+          </label>
+          <label>
+            <input class="form-check-input" type="checkbox" value="" />
+            gave you an article or brochure that explained knee injuries
+          </label>
+        </div>
+      </div>
+      <br />
+
+      <div class="form-group">
+        <label style="font-weight: bold">I like websites that have:</label>
+
+        <div class="list-group">
+          <label>
+            <input class="form-check-input" type="checkbox" value="" />
+            interesting design and visual effects
+          </label>
+          <label>
+            <input class="form-check-input" type="checkbox" value="" />
+            things I can click on and do
+          </label>
+          <label>
+            <input class="form-check-input" type="checkbox" value="" />
+            interesting information and articles in print
+          </label>
+          <label>
+            <input class="form-check-input" type="checkbox" value="" />
+            gave you an article or brochure that explained knee injuries
+          </label>
+        </div>
+      </div>
+      <br />
+
+      <div class="form-group">
+        <label style="font-weight: bold">I like websites that have:</label>
+
+        <div class="list-group">
+          <label>
+            <input class="form-check-input" type="checkbox" value="" />
+            interesting design and visual effects
+          </label>
+          <label>
+            <input class="form-check-input" type="checkbox" value="" />
+            things I can click on and do
+          </label>
+          <label>
+            <input class="form-check-input" type="checkbox" value="" />
+            interesting information and articles in print
+          </label>
+          <label>
+            <input class="form-check-input" type="checkbox" value="" />
+            gave you an article or brochure that explained knee injuries
+          </label>
+        </div>
+      </div> -->
+      <br />
+      <button
+        id="submit"
+        type="submit"
+        class="btn btn-info"
+        style="font-weight: bolder"
+      >
+        Submit
+      </button>
+    </form>
+    <!-- form ends here -->
+    <div id="result">
+      <h3 class="text-center">Congratulations! Your learning mode is:</h3>
+      <p class="text-center">{{ result }}</p>
+      <button (click)="onSave()" class="btn btn-dark">Save</button>
+    </div>
+  </div>
+
+  <div class="col-lg-2"></div>
+</div>

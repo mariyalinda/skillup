@@ -1,0 +1,134 @@
+<app-navbar></app-navbar>
+<!-- form starts here -->
+<div class="row">
+  <div class="col-lg-6"></div>
+  <div class="col-lg-5" style="margin-top: 2%; margin-bottom: 2%">
+    <div id="transbox" class="rounded">
+      <h2 style="text-align: center">New here?</h2>
+      <h6 style="text-align: justify">
+        Not to worry! Just fill in your details in the form below &#128151;
+      </h6>
+      <br />
+      <form #signup="ngForm" (ngSubmit)="signupUser()">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputUser" style="font-weight: bold">Username</label>
+            <input
+              type="text"
+              class="form-control"
+              name="uname"
+              placeholder="Create a username"
+              [(ngModel)]="user.uname"
+              minlength="5"
+              #username="ngModel"
+              [class.is-invalid]="username.invalid && username.touched"
+              required
+            />
+            <small
+              class="text-danger"
+              [class.d-none]="username.valid || username.untouched"
+              >Username must have atleast 5 characters!</small
+            >
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputPassword4" style="font-weight: bold"
+              >Password</label
+            >
+            <input
+              type="password"
+              pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
+              class="form-control"
+              name="pw"
+              #pw="ngModel"
+              [class.is-invalid]="pw.invalid && pw.touched"
+              [(ngModel)]="user.pw"
+              placeholder="Create a password"
+              required
+            />
+            <small class="text-danger" [class.d-none]="pw.valid || pw.untouched"
+              >Password must have minimum eight characters, atleast one letter
+              and one number!</small
+            >
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="email" style="font-weight: bold">Email</label>
+            <input
+              type="email"
+              pattern="^([A-Za-z0-9\.-]+)@([A-Za-z0-9\-]+)\.([a-z]{2,3})(.[a-z]{2,3})?$"
+              class="form-control"
+              name="email"
+              #email="ngModel"
+              [class.is-invalid]="email.invalid && email.touched"
+              [(ngModel)]="user.email"
+              required
+            />
+            <small
+              class="text-danger"
+              [class.d-none]="email.valid || email.untouched"
+              >Enter a valid email id!</small
+            >
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputRole" style="font-weight: bold">Role</label>
+            <select
+              name="role"
+              [(ngModel)]="user.role"
+              class="form-control"
+              required
+            >
+              <option value="1">Student</option>
+              <option value="2">Teacher</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="inputCity" style="font-weight: bold">City</label>
+            <input
+              type="text"
+              class="form-control"
+              name="city"
+              [(ngModel)]="user.city"
+              required
+            />
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputState" style="font-weight: bold">State</label>
+            <input
+              type="text"
+              class="form-control"
+              name="state"
+              [(ngModel)]="user.state"
+              required
+            />
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputCountry" style="font-weight: bold">Country</label>
+            <input
+              type="text"
+              class="form-control"
+              name="country"
+              [(ngModel)]="user.country"
+              required
+            />
+          </div>
+        </div>
+        <br />
+        <button
+          id="submit"
+          type="submit"
+          class="btn btn-warning"
+          style="font-weight: bolder"
+          [disabled]="signup.form.invalid"
+        >
+          Submit!
+        </button>
+      </form>
+      <!-- form ends here -->
+    </div>
+  </div>
+  <div class="col-lg-1"></div>
+</div>

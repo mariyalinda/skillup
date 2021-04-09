@@ -1,0 +1,34 @@
+<div class="main">
+  <app-navteacher></app-navteacher>
+  <div class="wrapper">
+    <!-- SIDEBAR -->
+    <nav id="sidebar">
+      <div class="sidebar-header">
+        <h3>Welcome!</h3>
+      </div>
+
+      <ul class="list-unstyled components">
+        <li>
+          <a routerLink="/tdash">Dashboard</a>
+        </li>
+        <li>
+          <a routerLink="#">Add question</a>
+        </li>
+        <li>
+          <a routerLink="#">Update question</a>
+        </li>
+        <li>
+          <a routerLink="#">Delete question</a>
+        </li>
+        <li>
+          <a routerLink="#">Student Progress</a>
+        </li>
+      </ul>
+    </nav>
+    <!-- SIDEBAR ENDS -->
+  </div>
+
+  <div class="right" id="myDIV">
+    <router-outlet></router-outlet>
+  </div>
+</div>
