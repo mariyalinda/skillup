@@ -19,7 +19,7 @@
               name="uname"
               placeholder="Create a username"
               [(ngModel)]="user.uname"
-              minlength="5"
+              minlength="3"
               #username="ngModel"
               [class.is-invalid]="username.invalid && username.touched"
               required
@@ -27,7 +27,7 @@
             <small
               class="text-danger"
               [class.d-none]="username.valid || username.untouched"
-              >Username must have atleast 5 characters!</small
+              >Username must have atleast 3 characters!</small
             >
           </div>
           <div class="form-group col-md-6">
@@ -115,6 +115,21 @@
               required
             />
           </div>
+        </div>
+        <div class="form-group" *ngIf="checkRole()">
+          <label style="font-weight: bold">Which subject do you teach?</label>
+          <select
+            name="subject"
+            [(ngModel)]="user.subject"
+            class="form-control"
+            required
+          >
+            <option value="1">Mathematics</option>
+            <option value="2">Science</option>
+            <option value="3">Social Studies</option>
+            <option value="4">English</option>
+            <option value="5">Admin</option>
+          </select>
         </div>
         <br />
         <button

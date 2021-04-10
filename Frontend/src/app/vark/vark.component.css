@@ -8,3 +8,6 @@
   background-size: cover;
   overflow: auto;
 }
+#result {
+  display: none;
+}

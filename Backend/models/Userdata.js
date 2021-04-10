@@ -17,6 +17,7 @@ const userSchema = new Schema({
   city: String,
   state: String,
   country: String,
+  subject: String,
 });
 //model creation
 var Userdata = mongoose.model("userdata", userSchema);

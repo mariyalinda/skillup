@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AddquestionComponent } from './addquestion/addquestion.component';
 import { AuthGuard } from './auth.guard';
 
 import { EngComponent } from './eng/eng.component';
@@ -11,7 +12,7 @@ import { SdashComponent } from './sdash/sdash.component';
 import { SignupComponent } from './signup/signup.component';
 import { SsComponent } from './ss/ss.component';
 import { TdashComponent } from './tdash/tdash.component';
-import { TsubComponent } from './tsub/tsub.component';
+
 import { VarkComponent } from './vark/vark.component';
 
 const routes: Routes = [
@@ -19,13 +20,14 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'vark', canActivate: [AuthGuard], component: VarkComponent },
-  { path: 'tsub', canActivate: [AuthGuard], component: TsubComponent },
-  { path: 'tdash', canActivate: [AuthGuard], component: TdashComponent },
+  { path: 'sdash', canActivate: [AuthGuard], component: SdashComponent },
   {
-    path: 'sdash',
+    path: 'tdash',
+
+    component: TdashComponent,
     canActivate: [AuthGuard],
-    component: SdashComponent,
     children: [
+      { path: 'addquestion', component: AddquestionComponent },
       { path: 'math', component: MathComponent },
       { path: 'science', component: ScienceComponent },
       { path: 'ss', component: SsComponent },

@@ -16,10 +16,17 @@ export class SignupComponent implements OnInit {
     city: '',
     state: '',
     country: '',
+    subject: '',
   };
   constructor(private _auth: AuthService, private _router: Router) {}
 
   ngOnInit(): void {}
+  checkRole() {
+    if (this.user.role == '2') {
+      return true;
+    }
+    return false;
+  }
   signupUser() {
     alert(`Welcome aboard ${this.user.uname}!`);
     this._auth.signupUser(this.user).subscribe(
@@ -28,7 +35,7 @@ export class SignupComponent implements OnInit {
         if (this.user.role == '1') {
           this._router.navigate(['/vark']);
         } else if (this.user.role == '2') {
-          this._router.navigate(['/tsub']);
+          this._router.navigateByUrl('/tdash', { state: { user: this.user } });
         }
       },
       (err) => {

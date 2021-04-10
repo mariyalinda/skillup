@@ -15,7 +15,7 @@ import { MathComponent } from './math/math.component';
 import { ScienceComponent } from './science/science.component';
 import { SsComponent } from './ss/ss.component';
 import { EngComponent } from './eng/eng.component';
-import { TopicsComponent } from './topics/topics.component';
+
 import { AuthService } from './auth.service';
 import { MathService } from './math.service';
 import { ScienceService } from './science.service';
@@ -23,9 +23,12 @@ import { EnglishService } from './english.service';
 import { SsService } from './ss.service';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { VarkComponent } from './vark/vark.component';
-import { TsubComponent } from './tsub/tsub.component';
+
 import { TdashComponent } from './tdash/tdash.component';
 import { NavteacherComponent } from './navteacher/navteacher.component';
+import { AddquestionComponent } from './addquestion/addquestion.component';
+
+import { QuestionService } from './question.service';
 
 @NgModule({
   declarations: [
@@ -40,11 +43,12 @@ import { NavteacherComponent } from './navteacher/navteacher.component';
     ScienceComponent,
     SsComponent,
     EngComponent,
-    TopicsComponent,
+
     VarkComponent,
-    TsubComponent,
+
     TdashComponent,
     NavteacherComponent,
+    AddquestionComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [
@@ -53,6 +57,8 @@ import { NavteacherComponent } from './navteacher/navteacher.component';
     SsService,
     ScienceService,
     EnglishService,
+
+    QuestionService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,

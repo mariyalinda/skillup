@@ -1,7 +1,7 @@
 #sidebar {
   float: left;
   width: 250px;
-  min-height: 100vh;
+  min-height: 145vh;
   background: #709fb0;
   color: #fff;
 }
@@ -10,7 +10,7 @@
   background-color: #fff5ea !important;
   overflow: hidden;
   padding: 20px;
-  min-height: 100vh;
+  min-height: 145vh;
   /* display: flex; */
   /* align-items: stretch; */
 }

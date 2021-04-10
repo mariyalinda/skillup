@@ -1,0 +1,119 @@
+<!-- form starts here -->
+<div class="row">
+  <div class="col-lg-2"></div>
+  <div class="col-lg-8" style="margin-top: 2%; margin-bottom: 2%">
+    <h2 style="text-align: center">Add a question!</h2>
+    <br />
+
+    <form #Questadd="ngForm" (ngSubmit)="addq()">
+      <div class="form-group">
+        <label style="font-weight: bold">Subject</label>
+        <select
+          name="subject"
+          class="form-control"
+          #subject="ngModel"
+          [(ngModel)]="quest.subject"
+          required
+        >
+          <option value="1">Mathematics</option>
+          <option value="2">Science</option>
+          <option value="3">Social Studies</option>
+          <option value="4">English</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label style="font-weight: bold">Topic</label>
+        <input
+          type="text"
+          class="form-control"
+          name="topic"
+          [(ngModel)]="quest.topic"
+          minlength="3"
+          #topic="ngModel"
+          [class.is-invalid]="topic.invalid && topic.touched"
+          required
+        />
+        <small
+          class="text-danger"
+          [class.d-none]="topic.valid || topic.untouched"
+          >Enter valid topic!</small
+        >
+      </div>
+      <div class="form-group">
+        <label style="font-weight: bold">Question</label>
+        <input
+          type="text"
+          class="form-control"
+          minlength="5"
+          #question="ngModel"
+          [(ngModel)]="quest.question"
+          name="question"
+          [class.is-invalid]="question.invalid && question.touched"
+          required
+        />
+        <small
+          class="text-danger"
+          [class.d-none]="question.valid || question.untouched"
+          >Enter valid question!</small
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="inputRole" style="font-weight: bold" FormControlName="hint1"
+          >Hint-1</label
+        >
+        <input
+          type="text"
+          name="hint1"
+          #hint1="ngModel"
+          class="form-control"
+          [(ngModel)]="quest.hint1"
+        />
+      </div>
+      <div class="form-group">
+        <label style="font-weight: bold">Hint-2</label>
+        <input
+          type="text"
+          class="form-control"
+          #hint2="ngModel"
+          [(ngModel)]="quest.hint2"
+          name="hint2"
+        />
+      </div>
+      <div class="form-group">
+        <label style="font-weight: bold">Hint-3</label>
+        <input
+          type="text"
+          class="form-control"
+          #hint3="ngModel"
+          [(ngModel)]="quest.hint3"
+          name="hint3"
+        />
+      </div>
+      <div class="form-group">
+        <label style="font-weight: bold">Image URL</label>
+        <input
+          type="text"
+          class="form-control"
+          #imageUrl="ngModel"
+          [(ngModel)]="quest.imageUrl"
+          name="imageUrl"
+          required
+        />
+      </div>
+
+      <br />
+      <button
+        id="submit"
+        type="submit"
+        class="btn btn-warning"
+        style="font-weight: bolder"
+        [disabled]="Questadd.form.invalid"
+      >
+        Submit
+      </button>
+    </form>
+    <!-- form ends here -->
+  </div>
+  <div class="col-lg-2"></div>
+</div>

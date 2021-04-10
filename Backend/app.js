@@ -100,6 +100,7 @@ app.post("/signup", (req, res) => {
     city: req.body.city,
     state: req.body.state,
     country: req.body.country,
+    subject: req.body.subject,
   };
   var user = Userdata(newuser);
   user
@@ -114,6 +115,62 @@ app.post("/signup", (req, res) => {
     .catch(function (error) {
       console.log(error);
     });
+});
+
+app.post("/insert", verifyToken, function (req, res) {
+  console.log("Subject is:", req.body.quest.subject);
+  var quest = {
+    subject: req.body.quest.subject,
+    topic: req.body.quest.topic,
+    question: req.body.quest.question,
+    hint1: req.body.quest.hint1,
+    hint2: req.body.quest.hint2,
+    hint3: req.body.quest.hint3,
+    imageUrl: req.body.quest.imageUrl,
+  };
+  console.log(quest);
+  if (quest.subject == "4") {
+    var quest = new Engqn({
+      topic: req.body.quest.topic,
+      question: req.body.quest.question,
+      hint1: req.body.quest.hint1,
+      hint2: req.body.quest.hint2,
+      hint3: req.body.quest.hint3,
+      imageUrl: req.body.quest.imageUrl,
+    });
+  }
+  if (quest.subject == "1") {
+    var quest = new Mathdata({
+      topic: req.body.quest.topic,
+      question: req.body.quest.question,
+      hint1: req.body.quest.hint1,
+      hint2: req.body.quest.hint2,
+      hint3: req.body.quest.hint3,
+      imageUrl: req.body.quest.imageUrl,
+    });
+  }
+  if (quest.subject == "2") {
+    var quest = new Scienceqn({
+      topic: req.body.quest.topic,
+      question: req.body.quest.question,
+      hint1: req.body.quest.hint1,
+      hint2: req.body.quest.hint2,
+      hint3: req.body.quest.hint3,
+      imageUrl: req.body.quest.imageUrl,
+    });
+  }
+  if (quest.subject == "3") {
+    var quest = new Ssqn({
+      topic: req.body.quest.topic,
+      question: req.body.quest.question,
+      hint1: req.body.quest.hint1,
+      hint2: req.body.quest.hint2,
+      hint3: req.body.quest.hint3,
+      imageUrl: req.body.quest.imageUrl,
+    });
+  }
+
+  quest.save();
 });
 
 app.post("/insertmath", function (req, res) {

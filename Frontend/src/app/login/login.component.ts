@@ -12,9 +12,16 @@ export class LoginComponent implements OnInit {
     uname: '',
     pw: '',
     role: '',
+    subject: '',
   };
   constructor(private _auth: AuthService, private _router: Router) {}
   ngOnInit(): void {}
+  checkRole() {
+    if (this.user.role == '2') {
+      return true;
+    }
+    return false;
+  }
   loginUser() {
     alert(`Welcome back ${this.user.uname}!`);
     this._auth.loginUser(this.user).subscribe(
@@ -23,7 +30,9 @@ export class LoginComponent implements OnInit {
         if (this.user.role == '1') {
           this._router.navigate(['/sdash']);
         } else if (this.user.role == '2') {
-          this._router.navigate(['/tdash']);
+          this._router.navigateByUrl('/tdash', {
+            state: { user: this.user },
+          });
         }
       },
       (err) => {
