@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
     this._auth.loginUser(this.user).subscribe(
       (res) => {
         localStorage.setItem('token', res.token);
+        localStorage.setItem('username', this.user.uname);
         if (this.user.role == '1') {
           this._router.navigate(['/sdash']);
         } else if (this.user.role == '2') {

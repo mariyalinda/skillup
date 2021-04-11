@@ -13,6 +13,7 @@ import { SdashComponent } from './sdash/sdash.component';
 import { SignupComponent } from './signup/signup.component';
 import { SsComponent } from './ss/ss.component';
 import { TdashComponent } from './tdash/tdash.component';
+import { TopicsComponent } from './topics/topics.component';
 
 import { VarkComponent } from './vark/vark.component';
 
@@ -30,6 +31,11 @@ const routes: Routes = [
         path: 'profile',
         canActivate: [AuthGuard],
         component: ProfileComponent,
+      },
+      {
+        path: 'topics',
+        canActivate: [AuthGuard],
+        component: TopicsComponent,
       },
     ],
   },

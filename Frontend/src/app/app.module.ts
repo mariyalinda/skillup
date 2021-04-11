@@ -31,6 +31,7 @@ import { AddquestionComponent } from './addquestion/addquestion.component';
 import { QuestionService } from './question.service';
 import { ProfileComponent } from './profile/profile.component';
 import { UserService } from './user.service';
+import { TopicsComponent } from './topics/topics.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { UserService } from './user.service';
     NavteacherComponent,
     AddquestionComponent,
     ProfileComponent,
+    TopicsComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [

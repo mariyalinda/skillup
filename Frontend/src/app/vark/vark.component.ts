@@ -88,6 +88,7 @@ export class VarkComponent implements OnInit {
     this._auth.signupUser(this.user).subscribe(
       (res) => {
         localStorage.setItem('token', res.token);
+        localStorage.setItem('username', this.user.uname);
         this._router.navigate(['/sdash']);
       },
       (err) => {

@@ -18,6 +18,6 @@ export class UserService {
   };
   constructor(private http: HttpClient) {}
   getUser(username: any) {
-    return this.http.get('http://localhost:5000/user' + username);
+    return this.http.get('http://localhost:5000/user/' + username);
   }
 }
