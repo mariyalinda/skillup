@@ -1,0 +1,64 @@
+<div class="table-responsive">
+  <table class="table">
+    <tbody>
+      <tr>
+        <td><label>Username</label></td>
+
+        <td>
+          <label>{{ user.username }}</label>
+        </td>
+      </tr>
+      <tr>
+        <td><label>User password</label></td>
+        <td>
+          <label>{{ user.password }}</label>
+        </td>
+      </tr>
+      <tr>
+        <td><label>Email</label></td>
+        <td>
+          <label>{{ user.email }}</label>
+        </td>
+      </tr>
+      <tr>
+        <td><label>Role</label></td>
+        <td>
+          <label>{{ user.role }}</label>
+        </td>
+      </tr>
+      <tr>
+        <td><label>City</label></td>
+        <td>
+          <label>{{ user.city }}</label>
+        </td>
+      </tr>
+      <tr>
+        <td><label>State</label></td>
+        <td>
+          <label>{{ user.state }}</label>
+        </td>
+      </tr>
+      <tr>
+        <td><label>Country</label></td>
+        <td>
+          <label>{{ user.country }}</label>
+        </td>
+      </tr>
+      <tr *ngIf="user.role == '2'">
+        <td><label>Subject</label></td>
+        <td>
+          <label>{{ user.subject }}</label>
+        </td>
+      </tr>
+      <tr *ngIf="user.role == '1'">
+        <td><label>Learning Mode</label></td>
+        <td>
+          <label>{{ user.vark }}</label>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

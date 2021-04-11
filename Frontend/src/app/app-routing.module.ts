@@ -7,6 +7,7 @@ import { EngComponent } from './eng/eng.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { MathComponent } from './math/math.component';
+import { ProfileComponent } from './profile/profile.component';
 import { ScienceComponent } from './science/science.component';
 import { SdashComponent } from './sdash/sdash.component';
 import { SignupComponent } from './signup/signup.component';
@@ -20,7 +21,19 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'vark', canActivate: [AuthGuard], component: VarkComponent },
-  { path: 'sdash', canActivate: [AuthGuard], component: SdashComponent },
+  {
+    path: 'sdash',
+    canActivate: [AuthGuard],
+    component: SdashComponent,
+    children: [
+      {
+        path: 'profile',
+        canActivate: [AuthGuard],
+        component: ProfileComponent,
+      },
+    ],
+  },
+
   {
     path: 'tdash',
 
@@ -32,6 +45,11 @@ const routes: Routes = [
       { path: 'science', component: ScienceComponent },
       { path: 'ss', component: SsComponent },
       { path: 'english', component: EngComponent },
+      {
+        path: 'profile',
+        canActivate: [AuthGuard],
+        component: ProfileComponent,
+      },
     ],
   },
 ];

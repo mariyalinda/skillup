@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
-declare var $: any;
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-vark',
@@ -11,11 +10,24 @@ declare var $: any;
 export class VarkComponent implements OnInit {
   modes1 = ['Visual', 'Auditory', 'Reading/Writing', 'Kinesthetic'];
   modes2 = [0, 0, 0, 0];
-  constructor(private _router: Router) {}
+  user = {
+    uname: '',
+    pw: '',
+    role: '',
+    email: '',
+    city: '',
+    state: '',
+    country: '',
+    subject: '',
+    vark: '',
+  };
+  constructor(private _router: Router, private _auth: AuthService) {
+    this.user = this._router.getCurrentNavigation().extras.state.user;
+  }
 
   result = '';
   specific_result = [];
-  vark = { result: this.result, modes: this.specific_result };
+  vark = this.result;
   visual() {
     this.modes2[0]++;
   }
@@ -72,6 +84,16 @@ export class VarkComponent implements OnInit {
 
   onSave() {
     //add to database
-    this._router.navigate(['/sdash']);
+    this.user.vark = this.result;
+    this._auth.signupUser(this.user).subscribe(
+      (res) => {
+        localStorage.setItem('token', res.token);
+        this._router.navigate(['/sdash']);
+      },
+      (err) => {
+        console.log(err);
+        this._router.navigate(['/']);
+      }
+    );
   }
 }

@@ -69,6 +69,13 @@ app.get("/ssq", function (req, res) {
   });
 });
 
+app.get("/user/:username", (req, res) => {
+  const username = req.params.username;
+  Userdata.findOne({ username: username }).then((user) => {
+    res.send(user);
+  });
+});
+
 //POST
 
 app.post("/login", (req, res) => {
@@ -101,6 +108,7 @@ app.post("/signup", (req, res) => {
     state: req.body.state,
     country: req.body.country,
     subject: req.body.subject,
+    vark: req.body.vark,
   };
   var user = Userdata(newuser);
   user

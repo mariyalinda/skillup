@@ -17,6 +17,7 @@ export class SignupComponent implements OnInit {
     state: '',
     country: '',
     subject: '',
+    vark: '',
   };
   constructor(private _auth: AuthService, private _router: Router) {}
 
@@ -29,19 +30,19 @@ export class SignupComponent implements OnInit {
   }
   signupUser() {
     alert(`Welcome aboard ${this.user.uname}!`);
-    this._auth.signupUser(this.user).subscribe(
-      (res) => {
-        localStorage.setItem('token', res.token);
-        if (this.user.role == '1') {
-          this._router.navigate(['/vark']);
-        } else if (this.user.role == '2') {
+    if (this.user.role == '2') {
+      this._auth.signupUser(this.user).subscribe(
+        (res) => {
+          localStorage.setItem('token', res.token);
           this._router.navigateByUrl('/tdash', { state: { user: this.user } });
+        },
+        (err) => {
+          console.log(err);
+          this._router.navigate(['/']);
         }
-      },
-      (err) => {
-        console.log(err);
-        this._router.navigate(['/']);
-      }
-    );
+      );
+    } else if (this.user.role == '1') {
+      this._router.navigateByUrl('/vark', { state: { user: this.user } });
+    }
   }
 }

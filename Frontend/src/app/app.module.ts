@@ -29,6 +29,8 @@ import { NavteacherComponent } from './navteacher/navteacher.component';
 import { AddquestionComponent } from './addquestion/addquestion.component';
 
 import { QuestionService } from './question.service';
+import { ProfileComponent } from './profile/profile.component';
+import { UserService } from './user.service';
 
 @NgModule({
   declarations: [
@@ -49,6 +51,7 @@ import { QuestionService } from './question.service';
     TdashComponent,
     NavteacherComponent,
     AddquestionComponent,
+    ProfileComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [
@@ -57,7 +60,7 @@ import { QuestionService } from './question.service';
     SsService,
     ScienceService,
     EnglishService,
-
+    UserService,
     QuestionService,
     {
       provide: HTTP_INTERCEPTORS,
