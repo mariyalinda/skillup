@@ -30,10 +30,15 @@ export class SignupComponent implements OnInit {
   }
   signupUser() {
     alert(`Welcome aboard ${this.user.uname}!`);
-    if (this.user.role == '2') {
+    if (this.user.role == '1') {
+      //if student, adding profile to database is done after vark analysis
+      this._router.navigateByUrl('/vark', { state: { user: this.user } });
+    } else if (this.user.role == '2') {
+      //if teacher, add profile to database
       this._auth.signupUser(this.user).subscribe(
         (res) => {
           localStorage.setItem('token', res.token);
+          localStorage.setItem('username', this.user.uname);
           this._router.navigateByUrl('/tdash', { state: { user: this.user } });
         },
         (err) => {
@@ -41,8 +46,6 @@ export class SignupComponent implements OnInit {
           this._router.navigate(['/']);
         }
       );
-    } else if (this.user.role == '1') {
-      this._router.navigateByUrl('/vark', { state: { user: this.user } });
     }
   }
 }

@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'vark', canActivate: [AuthGuard], component: VarkComponent },
+  { path: 'vark', component: VarkComponent },
   {
     path: 'sdash',
     canActivate: [AuthGuard],
