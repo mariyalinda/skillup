@@ -13,6 +13,7 @@ export class NavteacherComponent implements OnInit {
   constructor(private _router: Router, public _auth: AuthService) {}
   logOutUser() {
     localStorage.removeItem('token');
+    localStorage.removeItem('username');
     this._router.navigate(['/']);
   }
 
