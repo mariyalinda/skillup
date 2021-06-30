@@ -110,7 +110,7 @@ app.post("/signup", (req, res) => {
     subject: req.body.subject,
     vark: req.body.vark,
   };
-  var user = Userdata(newuser);
+  var user = new Userdata(newuser);
   user
     .save()
     .then(function () {
